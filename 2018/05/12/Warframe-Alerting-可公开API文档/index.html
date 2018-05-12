@@ -1,1 +1,429 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="云之幻 Richasy,richasy@foxmail.com"><title>Warframe Alerting 可公开API文档 · 云之幻-Richasy</title><meta name="description" content="游戏信息获取APIWarframe.Market 开发者二次加工API词库下载"><meta name="keywords" content="Hexo,HTML,CSS,C#,UWP,个人开发,云之幻,Richasy"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">云之幻-Richasy</a></h3><div class="description"><p>没事，我就写点东西，不想被续，也不想被关禁闭.</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/threefantasy"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/Richasy"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeIn"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">按年排列</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/Avatar.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Warframe Alerting 可公开API文档</a></h3></div><div class="post-content"><h2 id="游戏信息获取API"><a href="#游戏信息获取API" class="headerlink" title="游戏信息获取API"></a>游戏信息获取API</h2><h2 id="Warframe-Market-开发者二次加工API"><a href="#Warframe-Market-开发者二次加工API" class="headerlink" title="Warframe.Market 开发者二次加工API"></a>Warframe.Market 开发者二次加工API</h2><h2 id="词库下载"><a href="#词库下载" class="headerlink" title="词库下载"></a>词库下载</h2></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-12</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.cn/2018/05/12/Warframe-Alerting-可公开API文档/,云之幻-Richasy,Warframe Alerting 可公开API文档,;"></a></div></div><div class="pagination"><ul class="clearfix"></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="云之幻 Richasy,richasy@foxmail.com"><title>Warframe Alerting 可公开API文档 · 云之幻-Richasy</title><meta name="description" content="引言
+想象力比知识重要。因为知识是有限的，而想象力概括着世界上的一切，推动着世界的进步，并且是知识进化的源泉。———— Albert Einstein
+
+阅读此文并愿意温柔地使用我提供的API的同学，你们好。尽管我不想在正文前写上一堆废话来装逼，不过这看上去能让我的文章稍微正规一些，那我为什么不这么"><meta name="keywords" content="Hexo,HTML,CSS,C#,UWP,个人开发,云之幻,Richasy"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">云之幻-Richasy</a></h3><div class="description"><p>没事，我就写点东西，不想被续，也不想被关禁闭.</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/threefantasy"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/Richasy"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeIn"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">按年排列</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/Avatar.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Warframe Alerting 可公开API文档</a></h3></div><div class="post-content"><h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>想象力比知识重要。因为知识是有限的，而想象力概括着世界上的一切，推动着世界的进步，并且是知识进化的源泉。<br>———— Albert Einstein</p>
+</blockquote>
+<p>阅读此文并愿意温柔地使用我提供的API的同学，你们好。<br>尽管我不想在正文前写上一堆废话来装逼，不过这看上去能让我的文章稍微正规一些，那我为什么不这么做呢？<br>我深知个人实力有限，开发能力、架构能力以及想象力都很羸弱。本着共享的精神，特地在此将我的WFA软件所使用的一些API进行公布。<br>如果你喜欢Warframe并乐于自己开发软件，那么现在，你可以利用我提供的API来实现你自己的想法。<br>这些API中有我自己提供的、经过二次加工的，也有第三方提供的。<br>希望阅读本文的你能够善待他们。</p>
+<hr>
+<h3 id="游戏信息获取"><a href="#游戏信息获取" class="headerlink" title="游戏信息获取"></a>游戏信息获取</h3><div class="tip"><br>  本章节介绍的API来源于<a href="https://docs.warframestat.us/" title="非常棒的信息总览网站" target="_blank" rel="external">WarframeStat</a>，并非是由我开发的，这里介绍的API有限，如果想获取更多，请自行前往该网站。<br></div>
+
+<h5 id="获取全部信息"><a href="#获取全部信息" class="headerlink" title="获取全部信息"></a>获取全部信息</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+{
+  "timestamp": "string",
+  "news": [
+    -
+  ],
+  "events": [
+    {}
+  ],
+  "alerts": [
+    -
+  ],
+  "sortie": {
+    -
+  },
+  "syndicateMissions": [
+    -
+  ],
+  "fissures": [
+    -
+  ],
+  "globalUpgrades": [
+    {}
+  ],
+  "flashSales": [
+    -
+  ],
+  "invasions": [
+    -
+  ],
+  "darkSectors": [
+    -
+  ],
+  "voidTrader": {
+    -
+  },
+  "dailyDeals": [
+    -
+  ],
+  "simaris": {
+    -
+  },
+  "conclaveChallenges": [
+    -
+  ],
+  "persistentEnemies": [
+    {}
+  ],
+  "earthCycle": {
+    -
+  },
+  "cetusCycle": {
+   -
+  },
+  "constructionProgress": {
+    -
+  }
+}
+</pre>
+
+<ul>
+<li>对应平台指的是游戏平台，即：PC/PS4/XB1</li>
+<li>该请求将返回包括希图斯、奸商、新闻、警报、入侵等所有可公布的信息，信息量巨大。如果你需要的是某个单一条目，请避免使用此API</li>
+</ul>
+<h5 id="希图斯-API"><a href="#希图斯-API" class="headerlink" title="希图斯 API"></a>希图斯 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/cetusCycle" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/cetusCycle</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+{
+  "id": "string",
+  //结束时间
+  "expiry": "string",
+  "isDay": true,
+  "timeLeft": "string",
+  "isCetus": true
+}
+</pre>
+
+<h5 id="地球-API"><a href="#地球-API" class="headerlink" title="地球 API"></a>地球 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/earthCycle" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/earthCycle</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+{
+  "id": 0,
+  //结束时间
+  "expiry": "string",
+  "isDay": true,
+  "timeLeft": "string"
+}
+</pre>
+
+<h5 id="虚空商人-API"><a href="#虚空商人-API" class="headerlink" title="虚空商人 API"></a>虚空商人 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/voidTrader" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/voidTrader</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+{
+  "id": "string",
+  //初始时间
+  "activation": "string",
+  //结束时间
+  "expiry": "string",
+  "character": "string",
+  //地点
+  "location": "string",
+  //携带物品
+  "inventory": [
+    {}
+  ],
+  "psId": "string",
+  "active": true,
+  "startString": "string",
+  "endString": "string"
+}
+</pre>
+
+<h5 id="中继站Darvo-API"><a href="#中继站Darvo-API" class="headerlink" title="中继站Darvo API"></a>中继站Darvo API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/dailyDeals" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/dailyDeals</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  {
+    //物品名(英文，最好配合词库使用)
+    "item": "string",
+    //结束时间
+    "expiry": "string",
+    //初始价格
+    "originalPrice": 0,
+    //折后价格
+    "salePrice": 0,
+    //出售总数
+    "total": 0,
+    //已售数目
+    "sold": 0,
+    "id": "string",
+    "eta": "string",
+    //折扣(*100)
+    "discount": 0
+  }
+]
+</pre>
+
+<h5 id="新闻-API"><a href="#新闻-API" class="headerlink" title="新闻 API"></a>新闻 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/news" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/news</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  {
+    "id": "string",
+    "message": "string",
+    //网页链接
+    "link": "string",
+    //图片链接
+    "imageLink": "string",
+    "priority": true,
+    //发布日期
+    "date": "string",
+    "eta": "string",
+    "update": true,
+    "primeAccess": true,
+    "stream": true,
+    //新闻标题语言列表（包含各国语言，中文为zh）
+    "translations": {
+      "es": "string"
+    },
+    "asString": "string"
+  }
+]
+</pre>
+
+<h5 id="警报-API"><a href="#警报-API" class="headerlink" title="警报 API"></a>警报 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/alerts" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/alerts</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  {
+    "id": "string",
+    //开始时间
+    "activation": "string",
+    //结束时间
+    "expiry": "string",
+    "mission": {
+       //地点(括号内为星球，括号外为节点)
+      "node": "string",
+      //任务类型
+      "type": "string",
+      //阵营
+      "faction": "string",
+      //奖励
+      "reward": {
+        //单一奖励(如土豆)出现在这里
+        "items": [
+          {}
+        ],
+        //资源奖励(如豆子)出现在这里
+        "countedItems": [
+          {
+            //数量
+            "count": 0,
+            //物品名
+            "type": "string"
+          }
+        ],
+        //星币数
+        "credits": 0,
+        "asString": "string",
+        "itemString": "string",
+        //资源图片
+        "thumbnail": "string",
+        "color": 0
+      },
+      "minEnemyLevel": 0,
+      "maxEnemyLevel": 0,
+      "maxWaveNum": 0,
+      //是否为噩梦
+      "nightmare": true,
+      //是否为空战
+      "archwingRequired": true
+    },
+    //结束时间
+    "expired": true,
+    "eta": "string",
+    //奖励类型
+    "rewardTypes": [
+      {}
+    ]
+  }
+]
+</pre>
+
+<h5 id="入侵-API"><a href="#入侵-API" class="headerlink" title="入侵 API"></a>入侵 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/invasions" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/invasions</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  [
+    {
+      "id": "string",
+      //节点
+      "node": "string",
+      "desc": "string",
+      //入侵方
+      "attackerReward": {
+        "items": [
+          {}
+        ],
+        //有数目的奖励出现在此(和警报不同，奖励基本都在此显示，I系则为空)
+        "countedItems": [
+          {
+            //数目
+            "count": 0,
+            //奖励物品
+            "type": "string"
+          }
+        ],
+        "credits": 0,
+        "asString": "string",
+        "itemString": "string",
+        //奖励类型
+        "thumbnail": "string",
+        "color": 0
+      },
+      //入侵阵营
+      "attackingFaction": "string",
+      //防守阵营(理同入侵方，不赘述)
+      "defenderReward": {
+        "items": [
+          {}
+        ],
+        "countedItems": [
+          {
+            "count": 0,
+            "type": "string"
+          }
+        ],
+        "credits": 0,
+        "asString": "string",
+        "itemString": "string",
+        "thumbnail": "string",
+        "color": 0
+      },
+      "defendingFaction": "string",
+      //入侵方是否为I系(通过这个判断可以跳过入侵奖励)
+      "vsInfestation": true,
+      //开始时间
+      "activation": "string",
+      "count": 0,
+      "requiredRuns": 0,
+      //完成进度(过载会变负值)
+      "completion": 0,
+      //是否完成(任意一方进度达到100%)
+      "completed": true,
+      "eta": "string",
+      "rewardTypes": [
+        {}
+      ]
+    }
+  ]
+]
+</pre>
+
+<h5 id="裂缝-API"><a href="#裂缝-API" class="headerlink" title="裂缝 API"></a>裂缝 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/fissures" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/fissures</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  [
+    {
+      "id": "string",
+      //地点
+      "node": "string",
+      //任务类型
+      "missionType": "string",
+      //阵营
+      "enemy": "string",
+      //纪元(Lith:古纪;Meso:前纪;Neo:中纪;Axi:后纪)
+      "tier": "string",
+      //纪元序列(1,2,3,4对应古,前,中,后)
+      "tierNum": 0,
+      //开始时间
+      "activation": "string",
+      //结束时间
+      "expiry": "string",
+      //是否过期(防止时间过载)
+      "expired": true,
+      "eta": "string"
+    }
+  ]
+]
+</pre>
+
+<h5 id="突击-API"><a href="#突击-API" class="headerlink" title="突击 API"></a>突击 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/sortie" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/sortie</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  {
+    "id": "string",
+    //开始时间
+    "activation": "string",
+    //结束时间
+    "expiry": "string",
+    "rewardPool": "string",
+    //突击具体任务列表
+    "variants": [
+      {
+        "boss": "string",
+        "planet": "string",
+        //任务类型
+        "missionType": "string",
+        //强化类型
+        "modifier": "string",
+        "modifierDescription": "string",
+        //地点
+        "node": "string"
+      }
+    ],
+    //突击阵营的BOSS
+    "boss": "string",
+    //突击阵营
+    "faction": "string",
+    //是否过期
+    "expired": true,
+    "eta": "string"
+  }
+]
+</pre>
+
+<h5 id="集团任务-API"><a href="#集团任务-API" class="headerlink" title="集团任务 API"></a>集团任务 API</h5><p><strong>请求地址</strong>: <a href="https://api.warframestat.us/pc/syndicateMissions" title="本处以PC端为例" target="_blank" rel="external">https://api.warframestat.us/{对应平台}/syndicateMissions</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+[
+  [
+    {
+      "id": "string",
+      //开始时间
+      "activation": "string",
+      //结束时间
+      "expiry": "string",
+      //集团名
+      "syndicate": "string",
+      //节点列表
+      "nodes": [
+        {}
+      ],
+      //任务列表
+      "jobs": [
+        {}
+      ],
+      "eta": "string"
+    }
+  ]
+]
+</pre>
+
+<ul>
+<li>该API唯一有价值的就是希图斯的Ostrons赏金任务。其它集团的任务仅提供地点而没有任务类型(jobs字段形同虚设),且因集团任务往往和该节点本身任务不匹配，所以其它集团的信息没有什么价值。</li>
+<li>赏金任务在整个返回列表的第十位(最后一个),jobs内包含5个常规赏金任务。赏金任务内含rewardPool字段，其中包含了赏金奖励列表。</li>
+</ul>
+<hr>
+<h3 id="WM价格查询"><a href="#WM价格查询" class="headerlink" title="WM价格查询"></a>WM价格查询</h3><div class="tip"><br>    该接口未经WM方允许，请不要用做商业用途。<br>    接口请求时，请注意url中段的条目名，中文开发者请务必使用我提供的词库中的WF_Sale表进行查询，我已将对应的词条查询码整合，search字段就是。<br></div>
+
+<p><strong>请求地址</strong>: <a href="https://api.warframe.market/v1/items/maiming_strike/orders?include=item" title="本处以致残突击为例" target="_blank" rel="external">https://api.warframe.market/v1/items/{条目名}/orders?include=item</a><br><strong>请求方式</strong>: <code>GET</code><br><strong>返回结果</strong>:</p>
+<pre>
+{
+    "include":{
+        "item":{
+            "id":string
+            "items_in_set":[
+                //包含稀有度、交易税、图标、物品说明等基础信息
+            ]
+        }
+    }
+    "payload":{
+        "orders":[
+            //包含出售者的信息，具体字段请自行整理
+        ]
+    }
+}
+</pre>
+
+<div class="tip"><br>    由于国内的特殊原因，WM接口请求可能会有卡顿，甚至请求无响应。所以我建议有条件的同学最好使用服务器对该API进行二次包装，进行一次中转(我就是这么做的)。<br>    另外有一个坑，请使用.NET开发并托管在IIS服务器上的同学注意，WM的TLS握手协议为1.2版本，为稳妥，请在请求函数中加上这样一条代码：<br>    <code>System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;</code><br>    否则你可能会获取不到数据<br></div>
+
+<hr>
+<h3 id="词库下载"><a href="#词库下载" class="headerlink" title="词库下载"></a>词库下载</h3><blockquote>
+<p>所有的数据是开发者(也就是本人)费老鼻子劲整理的，近一个月时间起早贪黑编撰数据库，并在后期不断进行更新维护。在此感谢<a href="https://warframe.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5" title="中文区最大Warframe资料库" target="_blank" rel="external">Warframe 灰机Wiki</a>和<a href="http://warframe.wikia.com/wiki/WARFRAME_Wiki" title="英文Warframe Wiki" target="_blank" rel="external">WARFRAME WIKI</a>的数据整理</p>
+</blockquote>
+<div class="tip"><br>由于词库的特殊性，未来会随着游戏的更新持续更新，如果其中未包含你需要的词条，请在Github上issue一下哟~也请持续关注我的Github主页，及时更新新版本<br></div>
+
+<p>目前数据库已经基本定型，经过WFA软件半年多的持续性维护更新，词条也收集的相对齐全，在此公开以下几个数据表：</p>
+<ol>
+<li><code>WF_Dict</code> 词典表，一份相对齐全的WF中英对照表(有Id,Type,Zh,En四个字段)</li>
+<li><code>WF_Sale</code> 交易物品表，内含绝大部分可交易物品(其中的Search字段为WM专属查询码)</li>
+<li><code>WF_Alert</code> 警报奖励物品表(囊括警报中可能出现的奖励，相比词典，多了一些头盔等特殊奖励)</li>
+<li><code>WF_Invasion</code> 入侵奖励物品表(囊括入侵中可能出现的奖励，相比词典，多了亡魂、破坏者等武器部件)</li>
+</ol>
+<p><strong>Github地址</strong>: <a href="https://github.com/Richasy/WFA_Lexicon" title="WFA词库" target="_blank" rel="external">点此前往</a></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/WFA/" title="WFA">WFA </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.cn/2018/05/12/Warframe-Alerting-可公开API文档/,云之幻-Richasy,Warframe Alerting 可公开API文档,;"></a></div></div><div class="pagination"><ul class="clearfix"></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
