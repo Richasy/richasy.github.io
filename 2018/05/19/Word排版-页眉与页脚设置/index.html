@@ -57,7 +57,7 @@
 <h3 id="设置页脚"><a href="#设置页脚" class="headerlink" title="设置页脚"></a>设置页脚</h3><blockquote>
 <p>理同页眉设置，一些前文提到的就不赘述了。</p>
 </blockquote>
-<p>页码也需要取消前一条链接，是的，页眉和页脚要分别设置，不过比页眉好的是，在正文部分，不需要每一节都设置了，因为页码的格式是一致的，不分奇偶页也没有内容变化。<br>但是按照论文规范要求，中文摘要的页码为Ⅶ，英文摘要为Ⅷ。这两个比较特殊，需要在取消链接后需要单独设置。</p>
+<p>页码也需要取消前一条链接，是的，页眉和页脚要分别设置，不过比页眉好的是，在正文部分，不需要每一节都设置了，因为页脚的格式是一致的，不分奇偶页也没有内容变化。<br>但是按照论文规范要求，中文摘要的页码为Ⅶ，英文摘要为Ⅷ。这两个比较特殊，需要在取消链接后单独设置。</p>
 <p>论文规范对正文页码的格式要求形如<code>第X页(共Y页)</code>，如何让X实现自增呢？</p>
 <h5 id="详细内容：-2"><a href="#详细内容：-2" class="headerlink" title="详细内容："></a>详细内容：</h5><ol>
 <li><p>首先确保你在英文摘要后使用了<code>下一页</code>分节符，这一点至关重要。</p>
@@ -79,11 +79,11 @@
 <ul>
 <li><code>第X页(共Y页)</code>的页码仅适用于正文，在插入前一定要确保你的正文第一节取消了对前一节的链接，奇偶页都是如此。不过后面一直到<code>附录</code>前，页脚区域都可以保持对前一节的链接，避免重复设置。</li>
 <li>由于设置了<code>奇偶页不同</code>，所以在你设置页码时需要设置两次，奇数页一次偶数页一次，你可以先设置好奇数页的，然后复制粘贴到下一页。只要连着的两页设置好了，后面的页面会自动修改。</li>
-<li>注意论文要求，<code>封面</code>、<code>目录</code>、<code>附录</code>是没有页码的，注意在取消链接后删除这些页面的页码</li>
+<li>注意论文要求，<code>封面</code>、<code>目录</code>、<code>附录</code>是没有页脚的，注意在取消链接后删除这些页面的页脚</li>
 </ul>
 </li>
 </ol>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>我已经尽我所能将设置页眉页脚的过程详细描述了，感谢你能耐心看完。<br>请按着上面的指示进行操作，不懂的就问我吧</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><div class="tip"><br>由于一些奇怪的原因，在插入<code>分节符(下一页)</code>后会出现隐藏的空白页，目前尚不知具体原因，所以请尽量不要在正文中用<code>分节符(下一页)</code><br>而在出现空白页后，可以通过导出PDF，并利用PDF编辑器将空白页删除的方式解决，或者在打印时去掉空白页。由于不在正文，所以不影响页码<br></div><br>我已经尽我所能将设置页眉页脚的过程详细描述了，感谢你能耐心看完。<br>请按着上面的指示进行操作，不懂的就问我吧</p>
 </div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-18</span><i class="fa fa-tag"></i><a class="tag" href="/tags/论文/" title="论文">论文 </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.com/2018/05/19/Word排版-页眉与页脚设置/,云之幻-Richasy,Word排版-页眉与页脚设置,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/05/16/所谓语音助手，究竟该发展成什么样？/" title="所谓语音助手，究竟该发展成什么样？">下一篇</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js?v=undefined"></script><script>var valine = new Valine({
   el:'#vcomments',
   notify:true || false, 
