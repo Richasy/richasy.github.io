@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="云之幻 Richasy,richasy@foxmail.com"><title>Acrylic Markdown 编辑器说明 · 云之幻-Richasy</title><meta name="description" content="软件介绍
+写作即是坐下来判断自己
+
+开发者的废话我知道，市面上流行的Markdown编辑器有很多，尤其是MAC平台上，不过在Windows平台上，好的编辑器大多是如VS Code一类的代码编辑器，通过各种插件搭配出自己想要的样子。我知道很多人乐此不疲，事实上我之前也是用VS Code来写我的Mark"><meta name="keywords" content="Hexo,HTML,CSS,C#,UWP,个人开发,云之幻,Richasy"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">云之幻-Richasy</a></h3><div class="description"><p>没事，我就想写点东西，不想被续，也不想被关禁闭.</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/threefantasy"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/richasy"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeIn"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/Avatar.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Acrylic Markdown 编辑器说明</a></h3></div><div class="post-content"><h1 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h1><blockquote>
+<p>写作即是坐下来判断自己</p>
+</blockquote>
+<h4 id="开发者的废话"><a href="#开发者的废话" class="headerlink" title="开发者的废话"></a>开发者的废话</h4><p>我知道，市面上流行的Markdown编辑器有很多，尤其是MAC平台上，不过在Windows平台上，好的编辑器大多是如VS Code一类的代码编辑器，通过各种插件搭配出自己想要的样子。我知道很多人乐此不疲，事实上我之前也是用VS Code来写我的Markdown文件的。但是我也一直想在Windows平台上找一个轻量级的，专注于Markdown写作的软件。我尝试在Windows商店里找UWP软件，不过搜出来的结果都挺感人的……，哪个外观我确实用不下去。所以自己动手，丰衣足食，我制作了这样一款能满足我现阶段需求的Markdown编辑器。相比于市面上的其它编辑器，这款软件有什么优点呢？且听我一一道来</p>
+<hr>
+<h4 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h4><p>软件采用Fluent Design System，亚克力的表现效果确实惊艳，也成了我现在最喜欢用的材质。</p>
+<p><img src="/images/AcrMd/01.png" alt="初始界面"></p>
+<p>软件同时支持<code>Light</code>和<code>Dark</code>两种主题，并支持中英双语。在保留主要功能的情况下尽可能地精简界面，认真打磨软件UI，使之符合一个UWP软件应有的气质。</p>
+<p>关于Markdown的渲染，为了能使用本地应用的一些操作，放弃了WebView渲染，而采用微软开发者工具包中的MarkdownTextBlock进行渲染，并对原生的控件进行视觉优化，努力让其变得好看<em>（渲染界面也根据两种主题进行了适配）</em></p>
+<p>允许代码高亮（实验功能），默认是关闭的，因为着色属于二次加工，会对性能造成一定的影响</p>
+<p><img src="/images/AcrMd/02.png" alt="代码着色"></p>
+<p>为了能让你认真写作，左侧的工作区列表是可以隐藏的哟<em>（点击LOGO旁边的箭头）</em>~</p>
+<hr>
+<h4 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h4><p>软件有三种处理文件模式：</p>
+<ol>
+<li><p><strong>双栏模式</strong>：这是默认的，左侧为代码区，右侧为预览区。该模式下编辑大文本（超过1万字）会有一定的性能问题，可能会出现一定程度的卡顿，我的处理方式时：超过4000字时将自动刷新改为手动刷新，保存时渲染界面才会刷新<br> <img src="/images/AcrMd/03.png" alt="双栏"></p>
+</li>
+<li><p><strong>单页模式</strong>：该模式隐藏了预览区，变成了一个纯粹的文本编辑器。按下<code>Ctrl</code>+<code>Y</code>即可切换预览<br> <img src="/images/AcrMd/04.png" alt="单页"></p>
+</li>
+<li><p><strong>阅读模式</strong>：当在软件外部打开Markdown文件时，软件会自动切换成阅读模式（该模式无法由编辑模式切换），在此模式下，自动启用XAML渲染，如果渲染效果不满意，你可以按下<code>Ctrl</code>+<code>W</code>打开网页渲染预览。<br> <img src="/images/AcrMd/05.png" alt="阅读"></p>
+</li>
+</ol>
+<hr>
+<h4 id="其它功能"><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h4><ol>
+<li>多样化导出：软件支持HTML/MD/PDF三种文件格式的导出，用的多的还是前两者，PDF的导出有点蛋疼（仿佛一个高级截图）<br> <img src="/images/AcrMd/06.png" alt="pdf导出"></li>
+<li>自定义CSS：Markdown最终还是要导出为HTML文件，那么如何才能导出一个保有样式的HTML文件呢？你可以在设置中自行添加你喜欢的CSS样式，并将其设置为默认，这样在导出时你就可以得到一份内嵌了样式表的HTML文件咯~</li>
+<li>工作区：左侧是一个简易的文件列表，它会读取你选择的文件夹作为一个工作区，你可以方便地在这个列表里切换你的文件。当你想删除工作区时，点击<code>列表</code>键，勾选上你想移除的根目录（会全选，但不要担心，除非你仅勾选单个文件，否则不会删除你的文件的）。<br> <img src="/images/AcrMd/07.png" alt="文件列表"></li>
+<li>快捷键：为了能够加快写作速度，方便使用者，我特别准备了一些快捷键的操作，将列在下方，以供参考</li>
+</ol>
+<hr>
+<ul>
+<li><strong>保存文件</strong>：<code>Ctrl</code>+<code>S</code> (Save)</li>
+<li><strong>网页预览</strong>：<code>Ctrl</code>+<code>W</code> (Web)</li>
+<li><strong>导出菜单</strong>：<code>Ctrl</code>+<code>E</code> (Export)</li>
+<li><strong>模式切换</strong>：<code>Ctrl</code>+<code>Tab</code></li>
+<li><strong>切换预览</strong>（单页模式）：<code>Ctrl</code>+<code>Y</code> （YuLan）</li>
+<li><strong>文档信息</strong>：<code>Ctrl</code>+<code>F</code> (File)</li>
+</ul>
+<p>以下为文本操作(需选中文本)</p>
+<ul>
+<li><strong>文本加粗</strong>：<code>Ctrl</code>+<code>B</code> (Bold)</li>
+<li><strong>全部大写</strong>：<code>Ctrl</code>+<code>U</code> (Upper)</li>
+<li><strong>全部小写</strong>：<code>Ctrl</code>+<code>L</code> (Lower)</li>
+<li><strong>文本斜体</strong>：<code>Ctrl</code>+<code>I</code> (Italic)</li>
+<li><strong>引用</strong>：<code>Ctrl</code>+<code>Q</code> (Quote)</li>
+<li><strong>行内代码</strong>：<code>Ctrl</code>+<code>D</code> (Data)</li>
+<li><strong>块级代码</strong>：<code>Ctrl</code>+<code>P</code> (Pre)</li>
+</ul>
+<hr>
+<h4 id="目前无法解决的问题"><a href="#目前无法解决的问题" class="headerlink" title="目前无法解决的问题"></a>目前无法解决的问题</h4><ol>
+<li>代码着色的性能问题<br> 代码高亮按理应该是个基础的功能，不过在我这里又不太好实现了，我尝试用多线程，但RichEditBox获取文本是同步的方法，很尴尬，后续会持续进行优化</li>
+<li>软件关闭时无法保存文件<br> 受限于UWP的权限，我无法在你未保存文件并关闭软件时给出提示，只能做一定程度的缓存，但还请你养成随时Ctrl+S的习惯哟~</li>
+<li>本地图片难以读取<br> UWP的文件权限管理相当严格，属于放在我面前我都没办法伸手去拿的那种，而且软件对文件的读写并不一定在当前路径，对相对路径支持有限。所以当你尝试读取本地图片时，时常读取失败（无法读取的情况下会显示代码）。所以建议还是尽量用网络图片。</li>
+<li>导出PDF=截图<br> 如果要我读一份PDF文件的内容并显示，这有很多的类库可以做到，但想将Markdown渲染并导出为PDF，我试了很多种方法，都比较困难，而且不太适合UWP。最终选取了Windows自带的打印机。但你使用之后就知道，坑的一笔，只能截取指定大小的一块，不能分页，尺寸变了也不好进行文字重排。所以pdf导出的功能可以视作一个高级截图功能来使用。</li>
+</ol>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-06-19</span><i class="fa fa-tag"></i><a class="tag" href="/tags/ACRMD/" title="ACRMD">ACRMD </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.com/2018/06/20/Acrylic-Markdown编辑器说明/,云之幻-Richasy,Acrylic Markdown 编辑器说明,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/06/05/KAV更新日志/" title="KAV更新日志">Próximo post</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js?v=undefined"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:true || false, 
+  verify:true|| false, 
+  app_id:'vyXnFrEkrh0p25ExBuWdre8O-gzGzoHsz',
+  app_key:'P3bdNC1MIoTL89C49SzU6rdv',
+  placeholder:'😀写下你的回复吧~',
+  path: window.location.pathname,
+  avatar:'mm'
+})</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

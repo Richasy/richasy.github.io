@@ -64,17 +64,25 @@
 </li>
 <li><p>添加一个能自增的页码标识符<br>这个很关键哟~我下面要说的东西你可能不太懂，不过没关系，跟着操作就好：</p>
 <ol>
-<li>找到<code>文档部件</code>并选择<code>域</code>。<br><code>页眉和页脚工具</code>选项卡–&gt;<code>插入</code>区域–&gt;<code>文档部件</code>–&gt;点击<code>域</code><br><img src="/images/页眉页脚/07.png" alt="选择域"></li>
-<li>插入页码标识符<br>左侧域名中找到<code>Page</code>，域属性选择第一个，也就是<code>1，2，3</code>，确认。<br><img src="/images/页眉页脚/08.png" alt="插入页码标识符"><br>这样，一个能自增的页码标识符就处理好了</li>
+<li><p>找到<code>文档部件</code>并选择<code>域</code>。<br><code>页眉和页脚工具</code>选项卡–&gt;<code>插入</code>区域–&gt;<code>文档部件</code>–&gt;点击<code>域</code><br><img src="/images/页眉页脚/07.png" alt="选择域"></p>
+</li>
+<li><p>插入页码标识符<br>左侧域名中找到<code>Page</code>，域属性选择第一个，也就是<code>1，2，3</code>，确认。<br><img src="/images/页眉页脚/08.png" alt="插入页码标识符"><br>这样，一个能自增的页码标识符就处理好了</p>
+</li>
+<li><p>页码不是第一页怎么办？<br>如果你设置后，显示出的页码不是数字<code>1</code>，请按照以下方法操作：</p>
+<ol>
+<li><p>选中页码标识符，找到<code>页码格式</code><br><img src="/images/页眉页脚/09.png" alt="选择页码格式"></p>
+</li>
+<li><p>找到<code>起始页码</code>并设置为<code>1</code><br><img src="/images/页眉页脚/10.png" alt="设置起始页码"><br>如果设置无效，说明你前面的一页没有正确设置<code>下一页</code>分节符。</p>
+</li>
 </ol>
 </li>
-<li>页码不是第一页怎么办？<br>如果你设置后，显示出的页码不是数字<code>1</code>，请按照以下方法操作：<ol>
-<li>选中页码标识符，找到<code>页码格式</code><br><img src="/images/页眉页脚/09.png" alt="选择页码格式"></li>
-<li>找到<code>起始页码</code>并设置为<code>1</code><br><img src="/images/页眉页脚/10.png" alt="设置起始页码"><br>如果设置无效，说明你前面的一页没有正确设置<code>下一页</code>分节符。</li>
 </ol>
 </li>
-<li><p>完善格式<br>为了实现<code>第X页(共Y页)</code>的样式，我们最简单的实现方法就是在标识符的两侧输入文字，直接写成上面的格式，换句话说，用标识符代替那个<code>X</code>。<br>那么<code>Y</code>怎么办？<br>因为我们在计算页码时是以正文为准，换句话说，只从<code>绪论</code>算到<code>致谢</code>，所以Y不是整个论文的总页数，而是正文总页数，这个就不好用Word自带的域名了，所以，你可以设置好页码标识符后拉到致谢那一页，看看页码是多少，然后直接把<code>Y</code>换成那个数字就可以了。</p>
+<li><p>完善格式</p>
 </li>
+</ol>
+<p>为了实现<code>第X页(共Y页)</code>的样式，我们最简单的实现方法就是在标识符的两侧输入文字，直接写成上面的格式，换句话说，用标识符代替那个<code>X</code>。<br>那么<code>Y</code>怎么办？<br>因为我们在计算页码时是以正文为准，换句话说，只从<code>绪论</code>算到<code>致谢</code>，所以Y不是整个论文的总页数，而是正文总页数，这个就不好用Word自带的域名了，所以，你可以设置好页码标识符后拉到致谢那一页，看看页码是多少，然后直接把<code>Y</code>换成那个数字就可以了。</p>
+<ol>
 <li><p>注意事项</p>
 <ul>
 <li><code>第X页(共Y页)</code>的页码仅适用于正文，在插入前一定要确保你的正文第一节取消了对前一节的链接，奇偶页都是如此。不过后面一直到<code>附录</code>前，页脚区域都可以保持对前一节的链接，避免重复设置。</li>
@@ -83,7 +91,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><div class="tip"><br>由于一些奇怪的原因，在插入<code>分节符(下一页)</code>后会出现隐藏的空白页，目前尚不知具体原因，所以请尽量不要在正文中用<code>分节符(下一页)</code><br>而在出现空白页后，可以通过导出PDF，并利用PDF编辑器将空白页删除的方式解决，或者在打印时去掉空白页。由于不在正文，所以不影响页码<br></div><br>我已经尽我所能将设置页眉页脚的过程详细描述了，感谢你能耐心看完。<br>请按着上面的指示进行操作，不懂的就问我吧</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><div class="tip"><br>由于一些奇怪的原因，在插入<code>分节符(下一页)</code>后会出现隐藏的空白页，目前尚不知具体原因，所以请尽量不要在正文中用<code>分节符(下一页)</code><br>而在出现空白页后，可以通过导出PDF，并利用PDF编辑器将空白页删除的方式解决，或者在打印时去掉空白页。由于不在正文，所以不影响页码<br></div><br>我已经尽我所能将设置页眉页脚的过程详细描述了，感谢你能耐心看完。<br>请按着上面的指示进行操作，不懂的就问我吧。</p>
 </div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-18</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Word/" title="Word">Word </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.com/2018/05/19/Word排版-页眉与页脚设置/,云之幻-Richasy,Word排版-页眉与页脚设置,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2018/05/31/KAV-软件说明/" title="KAV-软件说明">Post Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/05/16/所谓语音助手，究竟该发展成什么样？/" title="所谓语音助手，究竟该发展成什么样？">Próximo post</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js?v=undefined"></script><script>var valine = new Valine({
   el:'#vcomments',
   notify:true || false, 
