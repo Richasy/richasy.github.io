@@ -24,7 +24,10 @@
 </li>
 </ol>
 <hr>
-<h4 id="其它功能"><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h4><p><strong>1. 多样化导出</strong>：软件支持HTML/MD/PDF三种文件格式的导出，用的多的还是前两者，PDF的导出有点蛋疼（仿佛一个高级截图）<br>    <img src="/images/AcrMd/06.png" alt="pdf导出"><br><strong>2. 自定义CSS</strong>：Markdown最终还是要导出为HTML文件，那么如何才能导出一个保有样式的HTML文件呢？你可以在设置中自行添加你喜欢的CSS样式，并将其设置为默认，这样在导出时你就可以得到一份内嵌了样式表的HTML文件咯~<br><strong>3. 工作区</strong>：左侧是一个简易的文件列表，它会读取你选择的文件夹作为一个工作区，你可以方便地在这个列表里切换你的文件。当你想删除工作区时，点击<code>列表</code>键，勾选上你想移除的根目录（会全选，但不要担心，除非你仅勾选单个文件，否则不会删除你的文件的）。<br>    <img src="/images/AcrMd/07.png" alt="文件列表"><br><strong>4. 快捷键</strong>：为了能够加快写作速度，方便使用者，我特别准备了一些快捷键的操作，将列在下方，以供参考</p>
+<h4 id="其它功能"><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h4><p><strong>1. 多样化导出</strong>：软件支持HTML/MD/PDF三种文件格式的导出，用的多的还是前两者，PDF的导出有点蛋疼（仿佛一个高级截图）<br>    <img src="/images/AcrMd/06.png" alt="pdf导出"></p>
+<p><strong>2. 自定义CSS</strong>：Markdown最终还是要导出为HTML文件，那么如何才能导出一个保有样式的HTML文件呢？你可以在设置中自行添加你喜欢的CSS样式，并将其设置为默认，这样在导出时你就可以得到一份内嵌了样式表的HTML文件咯~</p>
+<p><strong>3. 工作区</strong>：左侧是一个简易的文件列表，它会读取你选择的文件夹作为一个工作区，你可以方便地在这个列表里切换你的文件。当你想删除工作区时，点击<code>列表</code>键，勾选上你想移除的根目录（会全选，但不要担心，除非你仅勾选单个文件，否则不会删除你的文件的）。<br>    <img src="/images/AcrMd/07.png" alt="文件列表"></p>
+<p><strong>4. 快捷键</strong>：为了能够加快写作速度，方便使用者，我特别准备了一些快捷键的操作，将列在下方，以供参考</p>
 <hr>
 <ul>
 <li><strong>保存文件</strong>：<code>Ctrl</code>+<code>S</code> (Save)</li>
@@ -43,9 +46,13 @@
 <li><strong>引用</strong>：<code>Ctrl</code>+<code>Q</code> (Quote)</li>
 <li><strong>行内代码</strong>：<code>Ctrl</code>+<code>D</code> (Data)</li>
 <li><strong>块级代码</strong>：<code>Ctrl</code>+<code>P</code> (Pre)</li>
+<li><strong>标题</strong>：<code>Ctrl</code>+<code>1</code>~<code>Ctrl</code>+<code>6</code> (#~######)</li>
 </ul>
 <hr>
-<h4 id="目前无法解决的问题"><a href="#目前无法解决的问题" class="headerlink" title="目前无法解决的问题"></a>目前无法解决的问题</h4><p><strong>1. 代码着色的性能问题</strong><br>    代码高亮按理应该是个基础的功能，不过在我这里又不太好实现了，我尝试用多线程，但RichEditBox获取文本是同步的方法，很尴尬，后续会持续进行优化<br><strong>2. 软件关闭时无法保存文件</strong><br>    受限于UWP的权限，我无法在你未保存文件并关闭软件时给出提示，只能做一定程度的缓存，但还请你养成随时Ctrl+S的习惯哟~<br><strong>3. 本地图片难以读取</strong><br>    UWP的文件权限管理相当严格，属于放在我面前我都没办法伸手去拿的那种，而且软件对文件的读写并不一定在当前路径，对相对路径支持有限。所以当你尝试读取本地图片时，时常读取失败（无法读取的情况下会显示代码）。所以建议还是尽量用网络图片。<br><strong>4. 导出PDF=截图</strong><br>    如果要我读一份PDF文件的内容并显示，这有很多的类库可以做到，但想将Markdown渲染并导出为PDF，我试了很多种方法，都比较困难，而且不太适合UWP。最终选取了Windows自带的打印机。但你使用之后就知道，坑的一笔，只能截取指定大小的一块，不能分页，尺寸变了也不好进行文字重排。所以pdf导出的功能可以视作一个高级截图功能来使用。</p>
+<h4 id="目前无法解决的问题"><a href="#目前无法解决的问题" class="headerlink" title="目前无法解决的问题"></a>目前无法解决的问题</h4><p><strong>1. 代码着色的性能问题</strong><br>    代码高亮按理应该是个基础的功能，不过在我这里又不太好实现了，我尝试用多线程，但RichEditBox获取文本是同步的方法，很尴尬，后续会持续进行优化</p>
+<p><strong>2. 软件关闭时无法保存文件</strong><br>    受限于UWP的权限，我无法在你未保存文件并关闭软件时给出提示，只能做一定程度的缓存，但还请你养成随时Ctrl+S的习惯哟~</p>
+<p><strong>3. 本地图片难以读取</strong><br>    UWP的文件权限管理相当严格，属于放在我面前我都没办法伸手去拿的那种，而且软件对文件的读写并不一定在当前路径，对相对路径支持有限。所以当你尝试读取本地图片时，时常读取失败（无法读取的情况下会显示代码）。所以建议还是尽量用网络图片。</p>
+<p><strong>4. 导出PDF=截图</strong><br>    如果要我读一份PDF文件的内容并显示，这有很多的类库可以做到，但想将Markdown渲染并导出为PDF，我试了很多种方法，都比较困难，而且不太适合UWP。最终选取了Windows自带的打印机。但你使用之后就知道，坑的一笔，只能截取指定大小的一块，不能分页，尺寸变了也不好进行文字重排。所以pdf导出的功能可以视作一个高级截图功能来使用。</p>
 </div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-06-19</span><i class="fa fa-tag"></i><a class="tag" href="/tags/ACRMD/" title="ACRMD">ACRMD </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.com/2018/06/20/Acrylic-Markdown编辑器说明/,云之幻-Richasy,Acrylic Markdown 编辑器说明,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/06/05/KAV更新日志/" title="KAV更新日志">Próximo post</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js?v=undefined"></script><script>var valine = new Valine({
   el:'#vcomments',
   notify:true || false, 
