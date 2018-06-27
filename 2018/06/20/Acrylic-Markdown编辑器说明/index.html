@@ -14,15 +14,15 @@
 <p><img src="/images/AcrMd/01.png" alt="初始界面"></p>
 <p>软件同时支持<code>Light</code>和<code>Dark</code>两种主题，并支持中英双语。在保留主要功能的情况下尽可能地精简界面，认真打磨软件UI，使之符合一个UWP软件应有的气质。</p>
 <p>关于Markdown的渲染，为了能使用本地应用的一些操作，放弃了WebView渲染，而采用微软开发者工具包中的MarkdownTextBlock进行渲染，并对原生的控件进行视觉优化，努力让其变得好看<em>（渲染界面也根据两种主题进行了适配）</em></p>
-<p>允许代码高亮（实验功能），默认是关闭的，因为着色属于二次加工，会对性能造成一定的影响</p>
+<p>允许实时代码高亮，在此感谢<a href="http://codemirror.net/" target="_blank" rel="external">CodeMirror</a>的技术支持。</p>
 <p><img src="/images/AcrMd/02.png" alt="代码着色"></p>
 <p>为了能让你认真写作，左侧的工作区列表是可以隐藏的哟<em>（点击LOGO旁边的箭头）</em>~</p>
 <hr>
 <h4 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h4><p>软件有三种处理文件模式：</p>
 <ol>
-<li><p><strong>双栏模式</strong>：这是默认的，左侧为代码区，右侧为预览区。该模式下编辑大文本（超过1万字）会有一定的性能问题，可能会出现一定程度的卡顿，我的处理方式是：超过4000字时将自动刷新改为手动刷新，保存时渲染界面才会刷新<br> <img src="/images/AcrMd/03.png" alt="双栏"></p>
+<li><p><strong>双栏模式</strong>：这是默认的，左侧为代码区，右侧为预览区。该模式下编辑大文本（超过1万字）会有一定的性能问题，拖拽分界栏可能会出现一定程度的卡顿<br> <img src="/images/AcrMd/03.png" alt="双栏"></p>
 </li>
-<li><p><strong>单页模式</strong>：该模式隐藏了预览区，变成了一个纯粹的文本编辑器。按下<code>Ctrl</code>+<code>Y</code>即可切换预览<br> <img src="/images/AcrMd/04.png" alt="单页"></p>
+<li><p><strong>单页模式</strong>：该模式隐藏了预览区，变成了一个纯粹的文本编辑器。按下<code>Ctrl</code>+<code>Shift</code>+<code>V</code>即可切换预览<br> <img src="/images/AcrMd/04.png" alt="单页"></p>
 </li>
 <li><p><strong>阅读模式</strong>：当在软件外部打开Markdown文件时，软件会自动切换成阅读模式（该模式无法由编辑模式切换），在此模式下，自动启用XAML渲染，如果渲染效果不满意，你可以按下<code>Ctrl</code>+<code>W</code>打开网页渲染预览。<br> <img src="/images/AcrMd/05.png" alt="阅读"></p>
 </li>
