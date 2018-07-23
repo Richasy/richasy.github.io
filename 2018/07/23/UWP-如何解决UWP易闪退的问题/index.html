@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="云之幻 Richasy,richasy@foxmail.com"><title>UWP-如何解决UWP易闪退的问题 · 云之幻-Richasy</title><meta name="description" content="如何解决UWP应用易闪退的问题
+UWP应用，全称或许可称Windows通用平台应用，是微软推出的新一代Windows应用开发模型。但是自推出以来，却饱受诟病，其中，易闪退是很多人对它的第一印象。今天，我们就来谈一谈UWP应用闪退的问题，并教你如何解决它。
+
+本文所述是立于开发者角度，即从应用代码解决"><meta name="keywords" content="Hexo,HTML,CSS,C#,UWP,个人开发,云之幻,Richasy"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">云之幻-Richasy</a></h3><div class="description"><p>没事，我就想写点东西，不想被续，也不想被关禁闭.</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/threefantasy"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/richasy"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeIn"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/Avatar.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>UWP-如何解决UWP易闪退的问题</a></h3></div><div class="post-content"><h1 id="如何解决UWP应用易闪退的问题"><a href="#如何解决UWP应用易闪退的问题" class="headerlink" title="如何解决UWP应用易闪退的问题"></a>如何解决UWP应用易闪退的问题</h1><blockquote>
+<p>UWP应用，全称或许可称Windows通用平台应用，是微软推出的新一代Windows应用开发模型。但是自推出以来，却饱受诟病，其中，易闪退是很多人对它的第一印象。今天，我们就来谈一谈UWP应用闪退的问题，并教你如何解决它。</p>
+</blockquote>
+<div class="info"><br>本文所述是立于开发者角度，即从应用代码解决问题。而非处于用户角度，在应用之外解决UWP应用闪退的问题<br></div>
+
+<h3 id="大部分闪退的根源"><a href="#大部分闪退的根源" class="headerlink" title="大部分闪退的根源"></a>大部分闪退的根源</h3><p>UWP应用不是瓷娃娃，没那么易碎。“闪退”，归根结蒂其实是Windows对系统的保护，避免因应用的问题而导致内存泄漏或者出现其它的会影响到系统运行的问题。这种处理方式是站在系统角度上的，但开发者和用户都不领情。<br>用户自不必说，应用闪退，极大地影响用户体验，闪退了几次就把软件卸载了，闪退的应用多了，连带着对整个UWP应用都讨厌上了。<br>而开发者也很纠结，用户抱怨出现闪退，可在开发者这里没办法复现，导致开发者调试困难，有时候也是不了了之。<br><strong>那么大部分闪退的根源是什么呢？</strong><br>一言以蔽之，就是<strong>出现了未捕获的异常</strong>，即<strong>UnhandledException</strong>。</p>
+<p>在写应用的时候，出现错误的原因多种多样，从大的架构设计失当，到小的出现了不安全的空（Null）值。这些错误，开发者有的可以在程序设计时就利用<code>try-catch</code>语句进行捕获，经验越丰富的程序员，设计时考虑到的可能异常就越多。但是人力有时穷，不可能方方面面都考虑到，而程序一旦在运行过程中出现了<strong>未捕获的异常</strong>，应用马上闪退，毫无二话。</p>
+<p>照这样说，出现<strong>未捕获的异常</strong>似乎是再所难免的，可为什么有些应用基本不闪退呢？是它们的程序全身上下都是<code>try-catch</code>吗？</p>
+<p>肯定不是啦~</p>
+<p>解决未捕获的异常非常简单，即便算上大括号，也只需要5行代码就可以搞定。</p>
+<h3 id="如何一劳永逸地解决闪退问题"><a href="#如何一劳永逸地解决闪退问题" class="headerlink" title="如何一劳永逸地解决闪退问题"></a>如何一劳永逸地解决闪退问题</h3><p>如上节所述，绝大部分闪退的根源是<strong>未捕获的异常</strong>。既然是未捕获，那我们把它捕获了不就完事了吗？</p>
+<p>说起来简单，做起来……更简单！</p>
+<p>每一个新建的UWP应用都有一个<code>App.xaml</code>的文件，其背后则有一个<code>App.xaml.cs</code>。</p>
+<p><img src="/images/UWP闪退/01.png" alt="App.xaml" title="App.xaml文档结构"></p>
+<p><code>App.xaml.cs</code>中包含着关于应用启动、暂停等应用层级的操作逻辑，这个我相信各位开发者都是知道的。而所有未捕获的异常，最终都会冒泡到这里，所以这里是最后一关。换句话说，我们只要在这里设一道卡，抓住这个异常，不让它触发闪退机制就万事大吉了。</p>
+<p>App类派生自Application类，且自带了一个事件，就是<code>UnhandledException</code>，说明是<strong>当异常可由应用程序代码处理，如从本机级别的 Windows 运行时错误转发时发生。 应用程序可标记事件数据中处理的匹配项</strong>。<br>换句话说，人家早就想到会有闪退这种情况，已经预先把这个事件给你定好了。那我们要做的就非常简单了。</p>
+<p>首先，在App的构造函数里加上</p>
+<p><code>this.UnhandledException += OnUnhandledException;</code></p>
+<p>给这个事件绑定上一个处理函数。<br>接下来，我们就来写这个处理函数：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnUnhandledException</span>(<span class="params"><span class="keyword">object</span> sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e</span>)</span></div><div class="line">&#123;</div><div class="line">    e.Handled = <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>就这样，因出现<code>未捕获的异常</code>而造成的闪退就解决了，这个原因的闪退占了总体的九成以上。可以说，接下来，只要你的应用不作死，不故意写点死循环，不搞不安全的骚操作，基本上就不会再闪退了。</p>
+<h3 id="闪退问题的后续处理"><a href="#闪退问题的后续处理" class="headerlink" title="闪退问题的后续处理"></a>闪退问题的后续处理</h3><p>出现闪退，意味着程序有错误未捕获。既然有错误，那就要解决。单靠一个<code>e.Hanled=true;</code>……</p>
+<p>这种粗暴的解决方式虽然能够一次性解决闪退问题，但是治标不治本（虽然用户并不清楚，但实际使用体验却有了不少的提升）。作为软件的设计者，我们依然需要知道具体是哪里出现了问题，错误的原因是什么，这就涉及到了异常的后续处理。</p>
+<p>如果你做的应用上架到了微软应用商店，那么在微软应用商店的后台，会记录你的软件在用户处的使用状况，而当出现异常的时候，也会上传到你的软件后台，这样就方便管理了：</p>
+<p><img src="/images/UWP闪退/02.png" alt="微软应用商店后台" title="微软应用商店后台"></p>
+<p>你可以在后台观察出现的异常，然后在程序里解决它。</p>
+<p>但是凡事总有例外，微软应用商店也不能捕获所有的异常并加以分析，这里分享一个例子：</p>
+<p>我在开发WFA的时候，遇到过一个棘手的问题，Win10 14393的用户在打开应用设置时应用会闪退，而更高版本的则不会。当时在应用商店后台查看时，它也不知道原因，显示一个<code>Unkonwn Exception</code>，这我就很尴尬了啊。</p>
+<p>百思不得其解的情况下，我在<code>App.xaml.cs</code>的异常捕获函数中加了个小东西，即捕获到异常后，将异常的解释传到我的数据库里。通过这样的方式，我很快找到了问题的成因，即AutoSuggestBox控件的某个样式在14393系统中不支持，这导致应用无法渲染，直接闪退了。</p>
+<p>虽然最后我还是放弃了14393的支持（使用了ContentDialog的新控件），但这种本地处理也可以作为一个经验保留下来（现在的WFA也没有在异常捕获里加上传代码了）。</p>
+<p>小小总结一下，闪退异常的后续处理可以通过两种方式来解决：</p>
+<ul>
+<li>一种是依赖微软应用商店的异常上传机制，这种方式便于管理；</li>
+<li>当前种处理方式不能满足需求时，可以在<code>App.xaml.cs</code>中的异常捕获函数里进行本地处理，将更为详细的信息上传到你的数据库中，便于你进行分析。</li>
+</ul>
+<div class="tip"><br>不过要注意，由于发布的安装包基本都是Release的，异常捕获不会有Debug时那样精准，有时候也需要自己根据情况进行分析。<br></div>
+
+<h3 id="第二种闪退原因"><a href="#第二种闪退原因" class="headerlink" title="第二种闪退原因"></a>第二种闪退原因</h3><p>闪退原因可分为两部分，一种是我前面讲的代码中出现了未捕获的异常，而另一种，则是应用渲染无法获取到对应资源，这一点就尤其显示出UWP开发平台的不成熟性了。</p>
+<p>这种原因说白了其实就是“<strong>样式引起的闪退</strong>”，这个在我前面分享的WFA的例子中也提及过。</p>
+<p>开发过UWP应用的同学对于控件样式应该不陌生吧。这个是UI的关键部分。而控件样式的设计，低版本（15063及以下）可以使用Blend，而更高版本，Blend尚未支持，就需要自己创建控件样式的副本，手动对XAML代码进行修改（我现在已经更偏向于这一种处理方式了）。</p>
+<p>不论是利用Blend还是手动改，都需要创建控件样式的副本，这个副本依据什么创建的呢？依据的是系统默认的样式。而系统默认的样式有一个很严重的问题，以16299为例。</p>
+<p>众所周知，在16299中，Win10采用了Fluent Design，很多控件的默认样式都进行了更新，添加了一种名为AcrylicBrush的笔刷，而在最新的17134中，则有Reveal光效。当这些仅特定版本支持的特殊样式被内化到系统默认样式中，一件凄凉的事情就发生了：</p>
+<blockquote>
+<p>一个最为基础的控件，你认为的各个版本都会支持的控件，却偏偏成了闪退的罪魁祸首。</p>
+</blockquote>
+<p>原因就在于你使用高版本Win10进行开发时，控件的默认样式已经不再支持低版本了，而你却对此并不了解，导致你没修改控件的样式。这样的应用做出来，虽然名义上支持低版本，但是低版本打开后会因为应用找不到对应的系统资源而无法渲染，因此闪退。</p>
+<p>因这种原因而闪退的应用也屡见不鲜，很多时候都是开发者没有经过认真比对而强行上新的效果造成的。</p>
+<p>但是你说这个是开发者的原因吗？或许是，但微软也需要承担一定的责任。你控件更新就更新吧，好歹告诉我一声啊，就算没写什么更新说明，那么在创建默认样式时，加个波浪线，告诉一声“<strong>该样式在当前软件的最低系统版本中不受支持</strong>”也好啊。但很可惜的是，目前这种提示文字有，但不全面，仍有一些样式没有被包括在提醒列表之内。</p>
+<p>所以，当你在<code>App.xaml.cs</code>中完成了对代码的异常捕获后，应用依然会出现闪退，那么你就要考虑一下这种<strong>样式</strong>引起的闪退了。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-07-22</span><i class="fa fa-tag"></i><a class="tag" href="/tags/UWP/" title="UWP">UWP </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://blog.richasy.com/2018/07/23/UWP-如何解决UWP易闪退的问题/,云之幻-Richasy,UWP-如何解决UWP易闪退的问题,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/06/24/ACRMD更新日志/" title="Acrylic Markdown 更新日志">Próximo post</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js?v=undefined"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:true || false, 
+  verify:true|| false, 
+  app_id:'vyXnFrEkrh0p25ExBuWdre8O-gzGzoHsz',
+  app_key:'P3bdNC1MIoTL89C49SzU6rdv',
+  placeholder:'😀写下你的回复吧~',
+  path: window.location.pathname,
+  avatar:'mm'
+})</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
